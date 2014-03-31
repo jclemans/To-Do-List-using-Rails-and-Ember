@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @task = Task.new(:name => params[:task],
                      :done => false)
     if @task.save
-      redirect_to '/tasks'
+      redirect_to '/'
     else
       render('tasks/index.html.erb')
     end
@@ -25,6 +25,20 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to '/tasks'
-    # render('tasks/destroy.html.erb')
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+    render('tasks/edit.html.erb')
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(:name => params[:task])
+      redirect_to '/'
+    else
+      render('tasks/edit.html.erb')
+    end
   end
 end
+
