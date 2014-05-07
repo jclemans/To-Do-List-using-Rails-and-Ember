@@ -15,7 +15,6 @@
 //= require ember
 //= require ember-data
 //= require_self
-//= require ./to_do_manager
 //= require_tree .
 // for more details see: http://emberjs.com/guides/application/
 ToDoManager = Ember.Application.create({LOG_TRANSITIONS: true});

@@ -45,5 +45,5 @@ end
 private
 
   def task_params
-    params.fetch(:task).permit(:name, :done)
+    params.fetch(:task).permit(:name)
   end
