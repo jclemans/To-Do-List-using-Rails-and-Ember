@@ -3,48 +3,47 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     @task = Task.new
-    render('tasks/index.html.erb')
+    render :json => @tasks
   end
 
   def create
-    @task = Task.new(:name => params[:task],
-                     :done => false)
+    @task = Task.new(task_params)
     if @task.save
-      redirect_to '/'
+      render :json => @task, :status => 201
     else
-      render('tasks/index.html.erb')
+      render :json => @task.errors, :status => 422
     end
   end
 
   def show
     @task = Task.find(params[:id])
-    render('tasks/show.html.erb')
+    render :json => @task
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      head :no_content
+    else
+      render :json => @task.errors, :status => 422
+    end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to '/tasks'
-  end
-
-  def edit
-    @task = Task.find(params[:id])
-    render('tasks/edit.html.erb')
-  end
-
-  def update
-    @task = Task.find(params[:id])
-    if @task.update(:name => params[:task])
-      redirect_to '/'
-    else
-      render('tasks/edit.html.erb')
-    end
+    head :no_content
   end
 
   def mark_done
     @task = Task.find(params[:id])
     @task.update(:done => true)
-    redirect_to '/'
+    head :no_content
   end
 end
 
+private
+
+  def task_params
+    params.fetch(:task).permit(:name, :done)
+  end
