@@ -1,0 +1,8 @@
+<h4>Add a New Task</h4>
+<form action="/tasks" method="post">
+  {{#each error in errors.name}}
+      {{error.message}}
+  {{/each}}
+  {{input type="text" id="name" name="task" value=name}}
+  <a {{action createTask}} class="btn-sm btn-success">Add</a>
+</form>

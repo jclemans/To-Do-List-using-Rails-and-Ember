@@ -2,16 +2,16 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    @task = Task.new
     render :json => @tasks
   end
 
   def create
     @task = Task.new(task_params)
+
     if @task.save
       render :json => @task, :status => 201
     else
-      render :json => @task.errors, :status => 422
+      render :json => {:errors => @task.errors}, :status => 422
     end
   end
 
@@ -40,10 +40,10 @@ class TasksController < ApplicationController
     @task.update(:done => true)
     head :no_content
   end
-end
 
 private
 
   def task_params
-    params.fetch(:task).permit(:name)
+    params.fetch(:task).permit(:name, :done)
   end
+end
