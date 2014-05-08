@@ -44,6 +44,6 @@ class TasksController < ApplicationController
 private
 
   def task_params
-    params.fetch(:task).permit(:name, :isCompleted)
+    params.fetch(:task).permit(:name, :is_completed)
   end
 end

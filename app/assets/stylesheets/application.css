@@ -21,3 +21,8 @@
   color: #a9a9a9;
   text-decoration: line-through;
 }
+
+#task-list li {
+  font-size: 22px;
+  border-bottom: 1px dotted #ccc;
+}

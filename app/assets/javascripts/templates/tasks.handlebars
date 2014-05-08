@@ -2,13 +2,12 @@
   <hr>
   <div class="row">
     <div class="col-sm-5">
-      {{#link-to 'new_task' class='btn-sm btn-success'}}moar things!{{/link-to}}
+      {{#link-to 'new_task' class='btn btn-success'}}moar things!{{/link-to}}
       <br><br>
 
       <ul class="list-unstyled" id="task-list">
         {{#each itemController="task"}}
           <li {{bind-attr class="isCompleted:completed"}}>
-            {{input type="checkbox" checked=isCompleted class="toggle"}}
             {{#link-to 'task' this}}{{name}}{{/link-to}}
           </li>
         {{/each}}

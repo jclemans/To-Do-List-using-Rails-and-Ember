@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140508211416) do
 
   create_table "tasks", force: true do |t|
     t.string   "name"
-    t.boolean  "isCompleted"
+    t.boolean  "is_completed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

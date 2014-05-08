@@ -8,7 +8,7 @@ ToDoManager.NewTaskController = Ember.ObjectController.extend({
       //create the new Task model
       var task = this.store.createRecord('task', {
         name: name,
-        done: false
+        is_completed: false
       });
 
       //clear the new task field
