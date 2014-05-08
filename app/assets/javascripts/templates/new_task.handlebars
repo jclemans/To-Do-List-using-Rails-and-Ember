@@ -1,10 +1,11 @@
 <h4>What do you want to do?</h4>
-<form action="/tasks" method="post">
+
   {{#each error in errors.name}}
       {{error.message}}
   {{/each}}
-  {{input type="text" id="name" name="task" value=name}}
-  <a {{action createTask}} class="btn-sm btn-success">Add</a>
-</form>
+  <form {{action createTask}}>
+    {{input type="text" id="new-task" name="task" value=newTask action="createTask"}}
+    <button class="btn-sm btn-success">Add</button>
+  </form>
 
 {{outlet}}

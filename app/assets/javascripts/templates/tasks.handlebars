@@ -1,11 +1,10 @@
 <div class="container">
   <hr>
   <div class="row">
-    <div class="col-sm-6">
-      {{#link-to 'new_task' class='btn-sm btn-primary'}}new task{{/link-to}}
+    <div class="col-sm-5">
+      {{#link-to 'new_task' class='btn-sm btn-primary'}}moar things!{{/link-to}}
+      <br><br>
 
-
-      <h4>{{name}}</h4>
       <ol>
         {{#each}}
         <li>{{#link-to 'task' this}}{{name}}{{/link-to}}</li>
@@ -14,7 +13,7 @@
 
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       {{outlet}}
     </div>
 

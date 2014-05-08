@@ -1,13 +1,21 @@
 ToDoManager.NewTaskController = Ember.ObjectController.extend({
   actions: {
     createTask: function() {
-      var model = this.get('model');
-      var controller = this;
+      // Get the task name set by the "New Todo" text field
+      var name = this.get('newTask');
+      if (!name.trim()) { return; }
 
-      this.get('model').save()
-      .then(function() {
-        controller.transitionToRoute('tasks', model);
+      //create the new Task model
+      var task = this.store.createRecord('task', {
+        name: name,
+        done: false
       });
+
+      //clear the new task field
+      this.set('newTask', '');
+
+      //save the new model
+      task.save();
     }
   }
 });
