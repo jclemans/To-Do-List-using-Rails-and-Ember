@@ -2,10 +2,10 @@
   <hr>
   <div class="row">
     <div class="col-sm-5">
-      {{#link-to 'new_task' class='btn-sm btn-primary'}}moar things!{{/link-to}}
+      {{#link-to 'new_task' class='btn-sm btn-success'}}moar things!{{/link-to}}
       <br><br>
 
-      <ol>
+      <ol id="task-list">
         {{#each}}
         <li>{{#link-to 'task' this}}{{name}}{{/link-to}}</li>
         {{/each}}

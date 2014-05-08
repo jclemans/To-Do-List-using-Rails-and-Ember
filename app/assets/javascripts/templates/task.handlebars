@@ -1,4 +1,4 @@
 <h1>{{name}}</h1>
-<p>Completed? <span class="label label-default">{{done}}</span></p>
+<p>Done? {{input type="checkbox" checked=isCompleted class="toggle"}}</p>
 <br>
 <button {{action "removeTask"}} class="destroy btn-sm btn-danger">burninate!</button>
