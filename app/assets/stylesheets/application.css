@@ -12,3 +12,7 @@
  *= require bootstrap
  *= require_tree .
  */
+
+.jumbotron {
+  text-shadow: lightgray 1em 1em 0.3em;
+}

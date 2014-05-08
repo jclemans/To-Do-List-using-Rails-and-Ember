@@ -4,7 +4,7 @@ ToDoManager.NewTaskController = Ember.ObjectController.extend({
       var model = this.get('model');
       var controller = this;
 
-      model.save()
+      this.get('model').save()
       .then(function() {
         controller.transitionToRoute('tasks', model);
       });
