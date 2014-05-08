@@ -17,7 +17,7 @@
   text-shadow: lightgray 1em 1em 0.3em;
 }
 
-#task-list li.completed label {
+.completed {
   color: #a9a9a9;
   text-decoration: line-through;
 }

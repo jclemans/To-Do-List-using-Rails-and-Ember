@@ -5,11 +5,14 @@
       {{#link-to 'new_task' class='btn-sm btn-success'}}moar things!{{/link-to}}
       <br><br>
 
-      <ol id="task-list">
-        {{#each}}
-        <li>{{#link-to 'task' this}}{{name}}{{/link-to}}</li>
+      <ul class="list-unstyled" id="task-list">
+        {{#each itemController="task"}}
+          <li {{bind-attr class="isCompleted:completed"}}>
+            {{input type="checkbox" checked=isCompleted class="toggle"}}
+            {{#link-to 'task' this}}{{name}}{{/link-to}}
+          </li>
         {{/each}}
-      </ol>
+      </ul>
 
     </div>
 

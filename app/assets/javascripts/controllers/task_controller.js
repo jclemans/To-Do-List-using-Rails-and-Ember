@@ -14,13 +14,13 @@ ToDoManager.TaskController = Ember.ObjectController.extend({
 
       if (value === undefined) {
         // property being used as a getter
-        return model.get('done');
+        return model.get('isCompleted');
       } else {
         // property being used as a setter
-        model.set('done', value);
+        model.set('isCompleted', value);
         model.save();
         return value;
       }
-    }.property('model.done')
+    }.property('model.isCompleted')
   }
 });

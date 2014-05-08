@@ -37,13 +37,13 @@ class TasksController < ApplicationController
 
   def mark_done
     @task = Task.find(params[:id])
-    @task.update(:done => true)
+    @task.update(:isCompleted => true)
     head :no_content
   end
 
 private
 
   def task_params
-    params.fetch(:task).permit(:name, :done)
+    params.fetch(:task).permit(:name, :isCompleted)
   end
 end

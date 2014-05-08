@@ -1,4 +1,5 @@
-<h1>{{name}}</h1>
-<p>Done? {{input type="checkbox" checked=isCompleted class="toggle"}}</p>
+<h1 checked='isCompleted'>{{name}}</h1>
+<p>Are you done yet? {{input type="checkbox" checked=isCompleted class="toggle"}}</p>
+{{done}}
 <br>
 <button {{action "removeTask"}} class="destroy btn-sm btn-danger">burninate!</button>
